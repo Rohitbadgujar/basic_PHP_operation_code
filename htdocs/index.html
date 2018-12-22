@@ -1,0 +1,101 @@
+<Html>
+<Head>
+<link rel="stylesheet" href="style/index.css">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+</Head>
+<div style='width:100%;height:25%'>	
+ <label style="font-size: 40px;color: darksalmon;">Select table on which operation to be performed: </label>
+  <ul>
+  <li>
+    <input type="radio" id="f-option" name="selector" value="staff">
+    <label for="f-option">Staff</label>
+    
+    <div class="check"></div>
+  </li>
+  
+  <li>
+    <input type="radio" id="s-option" name="selector" value= "property">
+    <label for="s-option">Property</label>
+    
+    <div class="check"><div class="inside"></div></div>
+  </li>
+  
+         
+</ul>
+</div>
+
+<div style='width:100%;height:70%'>	
+ <label style="font-size: 40px;color: darksalmon;">Select Operation to Perform: </label>
+<ul>
+   
+		  <li>
+    <input type="radio" id="q-options" name="operator-selector" value="queries">
+    <label for="q-options">Queries</label>
+    
+    <div class="check"></div>
+  </li>
+  
+  <li>
+    <input type="radio" id="i-options" name="operator-selector" value= "insert">
+    <label for="i-options">Insert</label>
+    
+    <div class="check"><div class="inside"></div></div>
+  </li>
+  
+  <li>
+    <input type="radio" id="u-options" name="operator-selector" value = "update">
+    <label for="u-options">Update</label>
+    
+    <div class="check"><div class="inside"></div></div>
+  </li>
+  
+    <li>
+    <input type="radio" id="d-options" name="operator-selector" value = "delete">
+    <label for="d-options">Delete</label>
+    
+    <div class="check"><div class="inside"></div></div>
+  </li></ul>
+</div>
+
+<div class="subscribe">
+    <input type="submit" onClick="redirect()" class="btn" value="Go" style="font-size: 16px"><br />
+</div>
+
+
+</Html>
+
+ <script type="text/javascript">
+
+    function redirect()
+    {
+	if(!($("input[name='selector']:checked").length > 0 && $("input[name='operator-selector']:checked").length > 0)) {
+	alert('Please Selected the Operator and Operation');
+	return false;
+	}
+	if($("input[name='selector']:checked").val() == "staff"){
+	
+	var sw =  $("input[name='operator-selector']:checked").val();
+	switch(sw){
+	case 'queries' : window.location = "staff-query.php"; break;
+	case 'insert' : window.location = "staff-insert.php"; break;
+	case 'update' : window.location = "staff-update.php"; break;
+	case 'delete' : window.location = "staff-delete.php"; break;
+	default : break;
+	
+	}
+    }
+	if($("input[name='selector']:checked").val() == "property"){
+	
+	var sw =  $("input[name='operator-selector']:checked").val();
+	switch(sw){
+	case 'queries' : window.location = "property-query.php"; break;
+	case 'insert' : window.location = "property-insert.php"; break;
+	case 'update' : window.location = "property-update.php"; break;
+	case 'delete' : window.location = "property-delete.php"; break;
+	default : break;
+	
+	}
+    }
+	}
+    </script>
